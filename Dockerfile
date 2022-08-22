@@ -1,7 +1,13 @@
-FROM centos
-MAINTAINER nishadali01016@gmail.com
-RUN yum install httpd -y && touch /var/www/html/index.html && echo " Hi, MY firsy codedeploy application" > /var/www/html/index.html
-RUN chown apache:apache /var/www/html/index.html 
-ENTRYPOINT ["/usr/sbin/httpd", "-D","FOREGROUND"]
+# Sample Dockerfile
 
+# Indicates that the windowsservercore image will be used as the base image.
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
+# Metadata indicating an image maintainer.
+LABEL maintainer="jshelton@contoso.com"
+
+# Creates an HTML file and adds content to this file.
+RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
+
+# Sets a command or process that will run each time a container is run from the new image.
+CMD [ "cmd" ]
