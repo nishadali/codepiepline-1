@@ -2,7 +2,7 @@
 
 # Indicates that the windowsservercore image will be used as the base image.
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
-RUN docker inspect mcr.microsoft.com/windows/servercore:ltsc2019
+
 
 # Metadata indicating an image maintainer.
 LABEL maintainer="jshelton@contoso.com"
