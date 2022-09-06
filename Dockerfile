@@ -1,7 +1,8 @@
 # Sample Dockerfile
 
 # Indicates that the windowsservercore image will be used as the base image.
-FROM mcr.microsoft.com/windows/servercore:ltsc2022
+#FROM mcr.microsoft.com/windows/servercore:ltsc2022
+FROM rusak/aspnet48-servercore:1809
 
 
 # Metadata indicating an image maintainer.
