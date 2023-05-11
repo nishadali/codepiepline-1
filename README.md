@@ -1,0 +1,1 @@
+This is Dockerfile to Test FreshDesk case releated to exposed secret value
