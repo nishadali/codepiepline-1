@@ -21,15 +21,19 @@ pipeline {
         //         url https://
         //     }
         // }
-        // stage('BuildDockerImage') {
-        //     steps {
-        //         //
-        //     }
-        // }
-        // stage('AquaScan') {
-        //     steps {
-        //         aquaScan()
-        //     }
-        // }
+        stage('BuildDockerImage') {
+            steps {
+                script {
+                    dockerImage = docker.build("nishadali/aqua-test:${env.BUILD_ID}")
+                }
+            }
+        }
+        stage('AquaScan') {
+            steps {
+                script {
+                    aqua containerRuntime: 'docker', customFlags: '', hideBase: false, hostedImage: '', localImage: 'nishadali/aqua-test:${env.BUILD_ID}', localToken: '', locationType: 'local', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: '', scannerPath: '', showNegligible: false, tarFilePath: ''
+                }
+            }
+        }
     }
 }
