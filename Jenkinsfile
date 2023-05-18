@@ -13,14 +13,14 @@ pipeline {
                 sh 'docker login $AQUA_REGISTRY -u $AQUA_REG_USERNAME -p $AQUA_REG_PASSWORD'
             }
         }
-        stage('CheckoutfromGit') {
-          steps {
-            script {
-               checkout SCM
-            }
-        //         git branch 'Aqua-test', url 'https://github.com/nishadali/codepiepline-1.git'   
-        }
-        }
+        // stage('CheckoutfromGit') {
+        //   steps {
+        //     script {
+        //        checkout SCM
+        //     }
+        // //         git branch 'Aqua-test', url 'https://github.com/nishadali/codepiepline-1.git'   
+        // }
+        // }
         stage('BuildDockerImage') {
             steps {
                 script {
