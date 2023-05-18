@@ -1,17 +1,15 @@
 pipeline {
-    agent {
-        // Define agent details here
-        any
-    }
+    agent any
+    
     environment {
         AQUA_REG_USERNAME     = credentials('AQUA_REG_USERNAME')
         AQUA_REG_PASSWORD = credentials('AQUA_REG_PASSWORD')
-        AQUA_REGISTRY = https://egistry.aquasec.com
+        AQUA_REGISTRY = "https://registry.aquasec.com"
     }
     stages {
         stage('Loginto AquaRegistry') {
             steps {
-                docker login ${AQUA_REGISTRY} -u ${AQUA_REG_USERNAME} -p ${AQUA_REG_PASSWORD}
+                sh 'docker login $AQUA_REGISTRY -u $AQUA_REG_USERNAME -p $AQUA_REG_PASSWORD'
             }
         }
         // stage('CheckoutfromGit') {
