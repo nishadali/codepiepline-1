@@ -1,8 +1,6 @@
 pipeline {
-    agent {
-        // Define agent details here
-        any
-    }
+    agent any
+    
     environment {
         AQUA_REG_USERNAME     = credentials('AQUA_REG_USERNAME')
         AQUA_REG_PASSWORD = credentials('AQUA_REG_PASSWORD')
