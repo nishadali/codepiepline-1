@@ -6,7 +6,7 @@ pipeline {
     environment {
         AQUA_REG_USERNAME     = credentials('AQUA_REG_USERNAME')
         AQUA_REG_PASSWORD = credentials('AQUA_REG_PASSWORD')
-        AQUA_REGISTRY = https://egistry.aquasec.com
+        AQUA_REGISTRY = https://registry.aquasec.com
     }
     stages {
         stage('Loginto AquaRegistry') {
