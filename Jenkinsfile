@@ -5,6 +5,7 @@ pipeline {
         AQUA_REG_USERNAME     = credentials('AQUA_REG_USERNAME')
         AQUA_REG_PASSWORD = credentials('AQUA_REG_PASSWORD')
         AQUA_REGISTRY = "https://registry.aquasec.com"
+        dockerImage = ''
     }
     stages {
         stage('Loginto AquaRegistry') {
@@ -12,13 +13,14 @@ pipeline {
                 sh 'docker login $AQUA_REGISTRY -u $AQUA_REG_USERNAME -p $AQUA_REG_PASSWORD'
             }
         }
-        // stage('CheckoutfromGit') {
-        //     steps {
-        //         // checkout Docker file from SCM
-        //         git branch: 
-        //         url https://
-        //     }
-        // }
+        stage('CheckoutfromGit') {
+          steps {
+            script {
+               checkout SCM
+            }
+        //         git branch 'Aqua-test', url 'https://github.com/nishadali/codepiepline-1.git'   
+        }
+        }
         stage('BuildDockerImage') {
             steps {
                 script {
