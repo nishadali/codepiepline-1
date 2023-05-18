@@ -23,6 +23,7 @@ pipeline {
         // }
         stage('BuildDockerImage') {
             steps {
+                sh ls -la
                 script {
                     dockerImage = docker.build("nishadali/aqua-test:${env.BUILD_ID}")
                 }
