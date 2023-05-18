@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh 'ls -la'
                 script {
-                    dockerImage = docker.build("nishadali/aqua-test:${env.BUILD_ID}", "--build-arg AQUA_USERNAME=$AQUA_REG_USERNAME --build-arg AQUA_PASSWORD=$AQUA_REG_PASSWRD .")
+                    dockerImage = docker.build("nishadali/aqua-test:${env.BUILD_ID}", "--build-arg AQUA_USERNAME=$AQUA_REG_USERNAME --build-arg AQUA_PASSWORD=$AQUA_REG_PASSWORD .")
                 }
             }
         }
