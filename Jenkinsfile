@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Loginto AquaRegistry') {
             steps {
-                docker login ${AQUA_REGISTRY} -u ${AQUA_REG_USERNAME} -p ${AQUA_REG_PASSWORD}
+                docker login $AQUA_REGISTRY -u $AQUA_REG_USERNAME}-p $AQUA_REG_PASSWORD
             }
         }
         // stage('CheckoutfromGit') {
