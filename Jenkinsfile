@@ -26,7 +26,6 @@ pipeline {
             steps {
                 sh 'ls -la'
                 script {
-                    pwd
                     dockerImage = docker.build("nishadali/aqua-test:${env.BUILD_ID}")
                 }
             }
