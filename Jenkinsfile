@@ -14,11 +14,19 @@ pipeline {
                 sh 'docker login $AQUA_REGISTRY -u $AQUA_REG_USERNAME -p $AQUA_REG_PASSWORD'
             }
         }
+        // stage('CheckoutfromGit') {
+        //   steps {
+        //     script {
+        //        checkout SCM
+        //     }
+        // //         git branch 'Aqua-test', url 'https://github.com/nishadali/codepiepline-1.git'   
+        // }
+        // }
         stage('BuildDockerImage') {
             steps {
+                sh 'ls -la'
                 script {
-                    dockerImage = docker.build("nishadali/aqua-test:${env.BUILD_ID}", "--build-arg AQUA_USERNAME=$AQUA_REG_USERNAME --build-arg AQUA_PASSWORD=$AQUA_REG_PASSWORD .")
-                    dockerImage.push()
+                    dockerImage = docker.build("nishadali/aqua-test:${env.BUILD_ID}")
                 }
             }
         }
