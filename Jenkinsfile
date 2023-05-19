@@ -28,19 +28,20 @@ pipeline {
                 }
             }
         }
-        stage('BuildDockerImage') {
+        stage('Push_image') {
             steps {
                 script {
                     dockerImage.push(${BUILD_ID}-hosted)
                 }
             }
         }
-        stage('Aqua_scan_as_HostedImage')
+        stage('Aqua_scan_as_HostedImage') {
         steps{
             sh 'echo Hosted Image scan'
             script {
                 aqua containerRuntime: 'docker', customFlags: '--layer-vulnerabilities --collect-sensitive --scan-malware --html', hideBase: false, hostedImage: 'nishadali/aqua-test:${BUILD_ID}-hosted', localImage: '', localToken: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'nishad-docker', scannerPath: '', showNegligible: false, tarFilePath: ''
             }
         }
+    }
     }
 }
