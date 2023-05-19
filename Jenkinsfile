@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh 'docker login https://docker.io/ -u nishadali -p Nishad@ce123'
                   sh  'docker tag nishadali/aqua-test:${BUILD_ID} nishadali/aqua-test:27-hosted'
-                sh 'docker push nishadali/aqua-test:27-hosted'
+                sh 'docker push docker.io/nishadali/aqua-test:27-hosted'
                 }
          }
         stage('Aqua_scan_as_HostedImage_webhook') {
