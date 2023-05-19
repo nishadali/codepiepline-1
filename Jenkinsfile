@@ -31,7 +31,7 @@ pipeline {
         stage('Push_image') {
             steps {
                 script {
-                    dockerImage.push(${BUILD_ID}-hosted)
+                    dockerImage.push(${env.BUILD_ID}-hosted)
                 }
             }
         }
