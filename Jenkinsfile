@@ -31,7 +31,7 @@ pipeline {
         stage('Push_image') {
             steps {
                 sh 'docker login https://docker.io/ -u nishadali -p Nishad@ce123'
-                  sh  'docker tag nishadali/aqua-test:${env.BUILD_ID} nishadali/aqua-test:27-hosted'
+                  sh  'docker tag nishadali/aqua-test:${BUILD_ID} nishadali/aqua-test:27-hosted'
                 sh 'docker push nishadali/aqua-test:27-hosted'
                 }
          }
