@@ -31,7 +31,7 @@ pipeline {
         stage('Push_image') {
             steps {
                 script {
-                    dockerImage.push(${env.BUILD_ID}-hosted)
+                    dockerImage.push('test-hosted')
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
         steps{
             sh 'echo Hosted Image scan'
             script {
-                aqua containerRuntime: 'docker', customFlags: '--layer-vulnerabilities --collect-sensitive --scan-malware --html', hideBase: false, hostedImage: 'nishadali/aqua-test:${BUILD_ID}-hosted', localImage: '', localToken: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'nishad-docker', scannerPath: '', showNegligible: false, tarFilePath: ''
+                aqua containerRuntime: 'docker', customFlags: '--layer-vulnerabilities --collect-sensitive --scan-malware --html', hideBase: false, hostedImage: 'nishadali/aqua-test:test-hosted', localImage: '', localToken: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'nishad-docker', scannerPath: '', showNegligible: false, tarFilePath: ''
             }
         }
     }
