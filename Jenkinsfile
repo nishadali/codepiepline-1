@@ -31,8 +31,8 @@ pipeline {
         stage('Push_image') {
             steps {
                 script {
-                    docker.withRegistry('https://docker.io/', 'nishad-docker')
-                    dockerImage.push('test-hosted')
+                    docker tag nishadali/aqua-test:${env.BUILD_ID} nishadali/aqua-test:${env.BUILD_ID}-hosted
+                    docker push nishadali/aqua-test:${env.BUILD_ID}-hosted
                 }
             }
          }
