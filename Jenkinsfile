@@ -30,11 +30,9 @@ pipeline {
         }
         stage('Push_image') {
             steps {
-                script {
-                    docker tag nishadali/aqua-test:${env.BUILD_ID} nishadali/aqua-test:${env.BUILD_ID}-hosted
-                    docker push nishadali/aqua-test:${env.BUILD_ID}-hosted
+                  sh  'docker tag nishadali/aqua-test:${env.BUILD_ID} nishadali/aqua-test:${env.BUILD_ID}-hosted'
+                sh 'docker push nishadali/aqua-test:${env.BUILD_ID}-hosted'
                 }
-            }
          }
         stage('Aqua_scan_as_HostedImage_webhook') {
         steps{
