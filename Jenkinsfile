@@ -30,15 +30,15 @@ pipeline {
         }
         stage('Push_image') {
             steps {
-                  sh  'docker tag nishadali/aqua-test:${env.BUILD_ID} nishadali/aqua-test:${env.BUILD_ID}-hosted'
-                sh 'docker push nishadali/aqua-test:${env.BUILD_ID}-hosted'
+                  sh  'docker tag nishadali/aqua-test:27 nishadali/aqua-test:27-hosted'
+                sh 'docker push nishadali/aqua-test:27-hosted'
                 }
          }
         stage('Aqua_scan_as_HostedImage_webhook') {
         steps{
             sh 'echo Hosted Image scan'
             script {
-                aqua containerRuntime: 'docker', customFlags: '--layer-vulnerabilities --collect-sensitive --scan-malware --html', hideBase: false, hostedImage: 'nishadali/aqua-test:test-hosted', localImage: '', localToken: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'nishad-docker', scannerPath: '', showNegligible: false, tarFilePath: ''
+                aqua containerRuntime: 'docker', customFlags: '--layer-vulnerabilities --collect-sensitive --scan-malware --html', hideBase: false, hostedImage: 'nishadali/aqua-test:27-hosted', localImage: '', localToken: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'nishad-docker', scannerPath: '', showNegligible: false, tarFilePath: ''
             }
         }
     }
