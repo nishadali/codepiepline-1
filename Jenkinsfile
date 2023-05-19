@@ -30,11 +30,12 @@ pipeline {
         }
         stage('Push_image') {
             steps {
-                script {
+                //script {
+                    docker.withRegistry('https://docker.io/', 'nishad-docker')
                     dockerImage.push('test-hosted')
                 }
             }
-        }
+        // }
         stage('Aqua_scan_as_HostedImage') {
         steps{
             sh 'echo Hosted Image scan'
@@ -43,5 +44,5 @@ pipeline {
             }
         }
     }
-    }
+}
 }
