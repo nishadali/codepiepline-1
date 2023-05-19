@@ -36,7 +36,7 @@ pipeline {
                 }
             }
         // }
-        stage('Aqua_scan_as_HostedImage') {
+        stage('Aqua_scan_as_HostedImage_webhook') {
         steps{
             sh 'echo Hosted Image scan'
             script {
