@@ -2,7 +2,7 @@
 
 # Indicates that the windowsservercore image will be used as the base image.
 #FROM mcr.microsoft.com/windows/servercore:ltsc2022
-FROM aquasupport.azurecr.io/accenture-23688:aspnet48
+FROM alpine:latest
 
 
 # Metadata indicating an image maintainer.
